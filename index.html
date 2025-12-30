@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="description" content="A special New Year surprise just for you ✨">
+    <title>A Surprise For You ✨</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- PRELOADER -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div id="preloader">
+        <div class="loader-content glass-card">
+            <div class="loader-heart">💝</div>
+            <p class="loader-text">
+                <span data-lang="en">Preparing something special...</span>
+                <span data-lang="hi">कुछ खास तैयार हो रहा है...</span>
+            </p>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- CONTROL BUTTONS (Sound + Language) -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div class="control-buttons">
+        <!-- Language Toggle -->
+        <button id="langToggle" class="control-btn lang-toggle" aria-label="Toggle Language">
+            <span class="lang-en active">EN</span>
+            <span class="lang-hi">हि</span>
+        </button>
+        
+        <!-- Sound Toggle -->
+        <button id="soundToggle" class="control-btn sound-toggle" aria-label="Toggle Sound">
+            <span class="sound-on">🔊</span>
+            <span class="sound-off">🔇</span>
+        </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- BACKGROUND MUSIC -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="assets/bg.mp3" type="audio/mpeg">
+        <source src="assets/bg.mp3" type="audio/ogg">
+    </audio>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- ANIMATED BACKGROUND PARTICLES -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <div id="particles-bg"></div>
+    <div id="floating-hearts"></div>
+    <div id="stars-bg"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- MAIN CONTAINER -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <main id="mainContainer">
+        
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- PAGE 1: HEART HOLD SURPRISE -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <section class="page page-1 active" id="page1" data-page="1">
+            <div class="page-content">
+                <div class="glass-card glass-card-main glass-glow">
+                    <!-- Decorative Corner Elements -->
+                    <div class="corner-decoration corner-tl"></div>
+                    <div class="corner-decoration corner-tr"></div>
+                    <div class="corner-decoration corner-bl"></div>
+                    <div class="corner-decoration corner-br"></div>
+                    
+                    <!-- Sparkle Decorations -->
+                    <div class="sparkle sparkle-1">✨</div>
+                    <div class="sparkle sparkle-2">⭐</div>
+                    <div class="sparkle sparkle-3">✨</div>
+                    <div class="sparkle sparkle-4">💫</div>
+                    
+                    <!-- Main Text -->
+                    <h1 class="title-gradient">
+                        <span data-lang="en">A little surprise for you</span>
+                        <span data-lang="hi">तुम्हारे लिए एक छोटा सा सरप्राइज</span>
+                    </h1>
+                    <p class="subtitle">
+                        <span data-lang="en">Before this year begins...</span>
+                        <span data-lang="hi">इस नए साल की शुरुआत से पहले...</span>
+                    </p>
+                    
+                    <!-- Heart Hold Container -->
+                    <div class="heart-hold-container" id="heartHoldContainer">
+                        <!-- Outer Glow Ring -->
+                        <div class="heart-glow-ring"></div>
+                        
+                        <!-- Progress Ring SVG -->
+                        <svg class="progress-ring" width="180" height="180" viewBox="0 0 180 180">
+                            <defs>
+                                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b6b"/>
+                                    <stop offset="50%" style="stop-color:#ff8e8e"/>
+                                    <stop offset="100%" style="stop-color:#ff6b6b"/>
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <circle 
+                                class="progress-ring-bg" 
+                                cx="90" 
+                                cy="90" 
+                                r="80"
+                                fill="none"
+                                stroke="rgba(255,255,255,0.1)"
+                                stroke-width="6"
+                            />
+                            <circle 
+                                class="progress-ring-circle" 
+                                cx="90" 
+                                cy="90" 
+                                r="80"
+                                fill="none"
+                                stroke="url(#progressGradient)"
+                                stroke-width="6"
+                                stroke-linecap="round"
+                                stroke-dasharray="502.65"
+                                stroke-dashoffset="502.65"
+                                transform="rotate(-90 90 90)"
+                                filter="url(#glow)"
+                            />
+                        </svg>
+                        
+                        <!-- Heart Icon -->
+                        <div class="heart-icon" id="heartIcon">
+                            <span class="heart-emoji">❤️</span>
+                            <div class="heart-pulse"></div>
+                            <div class="heart-pulse heart-pulse-2"></div>
+                            <div class="heart-pulse heart-pulse-3"></div>
+                        </div>
+                        
+                        <!-- Hold Progress Percentage -->
+                        <div class="hold-percentage" id="holdPercentage">0%</div>
+                    </div>
+                    
+                    <!-- Instruction -->
+                    <p class="instruction-text">
+                        <span class="tap-icon">👆</span>
+                        <span data-lang="en">Tap and hold the heart</span>
+                        <span data-lang="hi">दिल को दबाकर रखें</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- PAGE 2: DRAG CARDS PAGE -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <section class="page page-2" id="page2" data-page="2">
+            <div class="page-content">
+                <!-- Header Glass Card -->
+                <div class="glass-card glass-card-header">
+                    <h1 class="title-gradient">
+                        <span data-lang="en">Something is waiting for you</span>
+                        <span data-lang="hi">कुछ खास तुम्हारा इंतज़ार कर रहा है</span>
+                    </h1>
+                    <p class="subtitle">
+                        <span data-lang="en">Move the little distractions aside</span>
+                        <span data-lang="hi">इन छोटी-छोटी परेशानियों को हटाओ</span>
+                    </p>
+                </div>
+                
+                <!-- Cards Container Glass Card -->
+                <div class="glass-card glass-card-cards-area">
+                    <div class="cards-area" id="cardsArea">
+                        <!-- Hidden Gift (Behind Cards) -->
+                        <div class="hidden-gift" id="hiddenGift">
+                            <div class="gift-glow"></div>
+                            <span class="gift-emoji">🎁</span>
+                            <p class="gift-text">
+                                <span data-lang="en">Tap to open!</span>
+                                <span data-lang="hi">खोलने के लिए टैप करें!</span>
+                            </p>
+                        </div>
+                        
+                        <!-- Distraction Cards -->
+                        <div class="distraction-card" data-card="0" style="--card-rotation: -15deg; --card-x: -40px; --card-y: 25px;">
+                            <div class="card-inner-glow"></div>
+                            <span class="card-icon">💼</span>
+                            <span class="card-text">
+                                <span data-lang="en">Work</span>
+                                <span data-lang="hi">काम</span>
+                            </span>
+                        </div>
+                        
+                        <div class="distraction-card" data-card="1" style="--card-rotation: 12deg; --card-x: 50px; --card-y: -20px;">
+                            <div class="card-inner-glow"></div>
+                            <span class="card-icon">😰</span>
+                            <span class="card-text">
+                                <span data-lang="en">Stress</span>
+                                <span data-lang="hi">तनाव</span>
+                            </span>
+                        </div>
+                        
+                        <div class="distraction-card" data-card="2" style="--card-rotation: -8deg; --card-x: -25px; --card-y: 50px;">
+                            <div class="card-inner-glow"></div>
+                            <span class="card-icon">📏</span>
+                            <span class="card-text">
+                                <span data-lang="en">Distance</span>
+                                <span data-lang="hi">दूरियाँ</span>
+                            </span>
+                        </div>
+                        
+                        <div class="distraction-card" data-card="3" style="--card-rotation: 18deg; --card-x: 45px; --card-y: 30px;">
+                            <div class="card-inner-glow"></div>
+                            <span class="card-icon">🌧️</span>
+                            <span class="card-text">
+                                <span data-lang="en">Bad Days</span>
+                                <span data-lang="hi">बुरे दिन</span>
+                            </span>
+                        </div>
+                        
+                        <div class="distraction-card" data-card="4" style="--card-rotation: -5deg; --card-x: 5px; --card-y: -30px;">
+                            <div class="card-inner-glow"></div>
+                            <span class="card-icon">🤔</span>
+                            <span class="card-text">
+                                <span data-lang="en">Overthinking</span>
+                                <span data-lang="hi">ज़्यादा सोचना</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Glass Card -->
+                <div class="glass-card glass-card-progress">
+                    <div class="progress-dots" id="cardsProgress">
+                        <span class="progress-dot" data-dot="0"></span>
+                        <span class="progress-dot" data-dot="1"></span>
+                        <span class="progress-dot" data-dot="2"></span>
+                        <span class="progress-dot" data-dot="3"></span>
+                        <span class="progress-dot" data-dot="4"></span>
+                    </div>
+                    <p class="progress-text">
+                        <span data-lang="en">Swipe cards away</span>
+                        <span data-lang="hi">कार्ड्स को स्वाइप करें</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- PAGE 3: GIFT REVEAL & GOLDEN TICKET -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <section class="page page-3" id="page3" data-page="3">
+            <div class="page-content">
+                <!-- Confetti Container -->
+                <div class="confetti-container" id="confettiContainer"></div>
+                
+                <!-- Gift Box Glass Card (Before Reveal) -->
+                <div class="gift-reveal-container" id="giftRevealContainer">
+                    <div class="glass-card glass-card-gift glass-glow">
+                        <div class="sparkle sparkle-1">✨</div>
+                        <div class="sparkle sparkle-2">🌟</div>
+                        <div class="sparkle sparkle-3">💫</div>
+                        
+                        <h1 class="title-gradient">
+                            <span data-lang="en">A surprise for you</span>
+                            <span data-lang="hi">तुम्हारे लिए एक सरप्राइज</span>
+                        </h1>
+                        <p class="subtitle">
+                            <span data-lang="en">Tap the gift to open</span>
+                            <span data-lang="hi">गिफ्ट खोलने के लिए टैप करें</span>
+                        </p>
+                        
+                        <div class="gift-box-wrapper" id="giftBoxWrapper">
+                            <div class="gift-box-glow"></div>
+                            <div class="gift-box" id="giftBox">
+                                <div class="gift-lid">
+                                    <div class="gift-bow"></div>
+                                </div>
+                                <div class="gift-body">
+                                    <div class="gift-ribbon-v"></div>
+                                    <div class="gift-ribbon-h"></div>
+                                </div>
+                            </div>
+                            <div class="gift-shadow"></div>
+                        </div>
+                        
+                        <p class="tap-hint">
+                            <span data-lang="en">🎁 Tap me!</span>
+                            <span data-lang="hi">🎁 मुझे टैप करो!</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Golden Ticket Glass Card (After Reveal) -->
+                <div class="golden-ticket-container" id="goldenTicketContainer">
+                    <div class="glass-card glass-card-ticket glass-glow-gold">
+                        <div class="golden-ticket" id="goldenTicket">
+                            <div class="ticket-shine"></div>
+                            <div class="ticket-border">
+                                <div class="ticket-content">
+                                    <div class="ticket-header">
+                                        <span class="ticket-star">⭐</span>
+                                        <h2>
+                                            <span data-lang="en">GOLDEN TICKET</span>
+                                            <span data-lang="hi">गोल्डन टिकट</span>
+                                        </h2>
+                                        <span class="ticket-star">⭐</span>
+                                    </div>
+                                    
+                                    <div class="ticket-divider">
+                                        <span></span>
+                                        <span class="divider-icon">✦</span>
+                                        <span></span>
+                                    </div>
+                                    
+                                    <p class="ticket-valid">
+                                        <span data-lang="en">Valid for every day ahead</span>
+                                        <span data-lang="hi">हर आने वाले दिन के लिए मान्य</span>
+                                    </p>
+                                    
+                                    <div class="ticket-main-text">
+                                        <p>
+                                            <span data-lang="en">"Unlimited Love & Smiles"</span>
+                                            <span data-lang="hi">"असीमित प्यार और मुस्कान"</span>
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="ticket-footer">
+                                        <p class="ticket-expiry">
+                                            <span data-lang="en">🎫 No expiration date 🎫</span>
+                                            <span data-lang="hi">🎫 कोई एक्सपायरी डेट नहीं 🎫</span>
+                                        </p>
+                                    </div>
+                                    
+                                    <button class="claim-ticket-btn glass-btn" id="claimTicketBtn">
+                                        <span data-lang="en">CLAIM TICKET</span>
+                                        <span data-lang="hi">टिकट लें</span>
+                                        <span class="btn-arrow">→</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Decorative Holes -->
+                            <div class="ticket-hole ticket-hole-left"></div>
+                            <div class="ticket-hole ticket-hole-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- PAGE 4: MEMORY IMAGES - FIXED VERSION (9 Images) -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="page page-4" id="page4" data-page="4">
+    <div class="page-content">
+        <!-- Header Glass Card -->
+        <div class="glass-card glass-card-header">
+            <h1 class="title-gradient">
+                <span data-lang="en">Some moments from this year</span>
+                <span data-lang="hi">इस साल की कुछ खास यादें</span>
+            </h1>
+            <p class="subtitle">
+                <span data-lang="en">Our beautiful memories together</span>
+                <span data-lang="hi">साथ बिताए खूबसूरत पल</span>
+            </p>
+            <!-- Image Counter -->
+            <div class="image-counter" id="imageCounter">
+                <span class="current-num">1</span>
+                <span class="separator">/</span>
+                <span class="total-num">9</span>
+            </div>
+        </div>
+        
+        <!-- Polaroid Gallery Glass Card -->
+        <div class="glass-card glass-card-gallery">
+            <div class="polaroid-gallery" id="polaroidGallery">
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 1 -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame active" data-polaroid="0">
+                    <div class="polaroid-image">
+                        <img src="assets/1.jpeg" alt="Memory 1" 
+                             onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">Our first adventure together ✨</span>
+                            <span data-lang="hi">हमारा पहला साहसिक सफर ✨</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 2 -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame" data-polaroid="1">
+                    <div class="polaroid-image">
+                        <img src="assets/2.jpeg" alt="Memory 2" 
+                             onerror="this.src='https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">Laughing through everything 💕</span>
+                            <span data-lang="hi">हर पल खिलखिलाते हुए 💕</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 3 -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame" data-polaroid="2">
+                    <div class="polaroid-image">
+                        <img src="assets/3.jpeg" alt="Memory 3" 
+                             onerror="this.src='https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">Making memories forever 🌟</span>
+                            <span data-lang="hi">हमेशा के लिए यादें बनाते हुए 🌟</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 4 -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame" data-polaroid="3">
+                    <div class="polaroid-image">
+                        <img src="assets/7.jpeg" alt="Memory 4" 
+                             onerror="this.src='https://images.unsplash.com/photo-1523301343968-6a6ebf63c672?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">That special moment 🌅</span>
+                            <span data-lang="hi">वो खास पल 🌅</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 5 -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame" data-polaroid="4">
+                    <div class="polaroid-image">
+                        <img src="assets/9.png" alt="Memory 5" 
+                             onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">Friends forever 👫</span>
+                            <span data-lang="hi">हमेशा के दोस्त 👫</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 6 -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame" data-polaroid="5">
+                    <div class="polaroid-image">
+                        <img src="assets/5.png" alt="Memory 6" 
+                             onerror="this.src='https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">Celebration time 🎉</span>
+                            <span data-lang="hi">जश्न का समय 🎉</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 7 -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame" data-polaroid="6">
+                    <div class="polaroid-image">
+                        <img src="assets/6.png" alt="Memory 7" 
+                             onerror="this.src='https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">Perfect day out ☀️</span>
+                            <span data-lang="hi">एक परफेक्ट दिन ☀️</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 8 -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame" data-polaroid="7">
+                    <div class="polaroid-image">
+                        <img src="assets/10.png" alt="Memory 8" 
+                             onerror="this.src='https://images.unsplash.com/photo-1543807535-eceef0bc6599?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">Silly moments 😜</span>
+                            <span data-lang="hi">मस्ती के पल 😜</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Polaroid 9 (Last) -->
+                <!-- ═══════════════════════════════════════════ -->
+                <div class="polaroid-frame" data-polaroid="8">
+                    <div class="polaroid-image">
+                        <img src="assets/8.png" alt="Memory 9" 
+                             onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&h=500&fit=crop'">
+                        <div class="polaroid-overlay"></div>
+                    </div>
+                    <div class="polaroid-caption">
+                        <p>
+                            <span data-lang="en">And many more to come... 💖</span>
+                            <span data-lang="hi">और भी बहुत कुछ आने वाला है... 💖</span>
+                        </p>
+                    </div>
+                    <div class="polaroid-tape tape-1"></div>
+                    <div class="polaroid-tape tape-2"></div>
+                </div>
+                
+            </div><!-- END polaroid-gallery -->
+            
+            <!-- Progress Bar -->
+            <div class="polaroid-progress" id="polaroidProgress">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <div class="polaroid-arrows">
+                <button class="arrow-btn arrow-prev" id="prevPolaroid" aria-label="Previous">
+                    <span>‹</span>
+                </button>
+                <button class="arrow-btn arrow-next" id="nextPolaroid" aria-label="Next">
+                    <span>›</span>
+                </button>
+            </div>
+            
+        </div><!-- END glass-card-gallery -->
+        
+        <!-- Instruction Glass Card -->
+        <div class="glass-card glass-card-instruction">
+            <p class="instruction-text">
+                <span class="tap-icon">👆</span>
+                <span data-lang="en">Tap photo or swipe to continue</span>
+                <span data-lang="hi">फोटो पर टैप करें या स्वाइप करें</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- PAGE 5: FINAL HAPPY NEW YEAR CARD -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <section class="page page-5" id="page5" data-page="5">
+            <div class="page-content">
+                <!-- Fireworks Container -->
+                <div class="fireworks-container" id="fireworksContainer"></div>
+                
+                <!-- Header Glass Card -->
+                <div class="glass-card glass-card-header glass-glow">
+                    <h1 class="title-gradient title-special">
+                        <span data-lang="en">For my Cutiepie :)</span>
+                        <span data-lang="hi">मेरी जान के लिए :)</span>
+                    </h1>
+                    <p class="subtitle">
+                        <span data-lang="en">Tap the card to read my message</span>
+                        <span data-lang="hi">Tap the card to read my message</span>
+                    </p>
+                </div>
+                
+                <!-- Final Greeting Card -->
+                <div class="final-card-container" id="finalCardContainer">
+                    <div class="final-card" id="finalCard">
+                        <!-- Card Front -->
+                        <div class="card-face card-front glass-card glass-glow-rainbow">
+
+    <!-- Decorative Emojis -->
+    <div class="card-decorations">
+        <span class="deco deco-1">🎆</span>
+        <span class="deco deco-2">✨</span>
+        <span class="deco deco-3">🎇</span>
+        <span class="deco deco-4">⭐</span>
+        <span class="deco deco-5">🌟</span>
+        <span class="deco deco-6">💫</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="card-main-content">
+
+        <div class="year-badge">HAPPY NEW YEAR 2026</div>
+
+        <!-- IMAGE INSTEAD OF TEXT -->
+        <div class="card-image-wrapper">
+            <img
+                src="assets/4.png"
+                alt="Happy New Year 2026"
+                class="card-image"
+                loading="lazy"
+            />
+        </div>
+
+    </div>
+
+    <!-- Hint -->
+    <p class="card-hint">
+        <span data-lang="en">Tap to open 💌</span>
+        <span data-lang="hi">Tap to open 💌</span>
+    </p>
+
+</div>
+
+<!-- ❤️ HEART RAIN CONTAINER (FOR ANIMATION) -->
+<div class="heart-rain-container"></div>
+
+                        
+                        <!-- Card Back (Message) -->
+                        <div class="card-face card-back">
+                            <div class="message-container">
+                                <h3 class="message-greeting">
+                                    <span data-lang="en">Dear Cutiepie,</span>
+                                    <span data-lang="hi">मेरी प्यारी जान,</span>
+                                </h3>
+                                
+                                <div class="message-body">
+                                    <!-- English Message -->
+                                    <div data-lang="en">
+                                        <p>As we step into this beautiful new year, I want you to know how incredibly special you are to me.</p>
+                                        
+                                        <p>Every moment with you is a treasure I hold close to my heart. Your smile lights up my world, and your love makes every day magical. ✨</p>
+                                        
+                                        <p>Here's to more laughs, more adventures, more late-night talks, and more beautiful memories together!</p>
+                                        
+                                        <p>May 2026 bring us closer than ever, filled with endless love, joy, and all the happiness your heart can hold. 💕</p>
+                                    </div>
+                                    
+                                    <!-- Hindi Message -->
+                                    <div data-lang="hi">
+                                        <p>जैसे हम इस खूबसूरत नए साल में कदम रख रहे हैं, मैं चाहता/चाहती हूं कि तुम जानो कि तुम मेरे लिए कितने खास हो।</p>
+                                        
+                                        <p>तुम्हारे साथ बिताया हर पल मेरे दिल के बहुत करीब है। तुम्हारी मुस्कान मेरी दुनिया रोशन कर देती है, और तुम्हारा प्यार हर दिन को जादुई बना देता है। ✨</p>
+                                        
+                                        <p>आने वाले साल में और भी हंसी, और साहसिक सफर, और रात की बातें, और खूबसूरत यादें बनाएं!</p>
+                                        
+                                        <p>2026 हमें और करीब लाए, अनंत प्यार, खुशी और वो सब जो तुम्हारा दिल चाहे उससे भरा हो। 💕</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="message-signature">
+                                    <p>
+                                        <span data-lang="en">With all my love,</span>
+                                        <span data-lang="hi">ढेर सारे प्यार के साथ,</span>
+                                    </p>
+                                    <p class="signature-heart">
+                                        <span data-lang="en">❤️ Forever Yours ❤️</span>
+                                        <span data-lang="hi">❤️ Forever Yours ❤️</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons Glass Card -->
+                <div class="glass-card glass-card-actions" id="finalActions">
+                    <button class="action-btn replay-btn glass-btn" id="replayBtn">
+                        <span class="btn-icon">🔄</span>
+                        <span data-lang="en">Replay</span>
+                        <span data-lang="hi">Replay</span>
+                    </button>
+                    
+                    <button class="action-btn share-btn glass-btn" id="shareBtn">
+                        <span class="btn-icon">📤</span>
+                        <span data-lang="en">Share</span>
+                        <span data-lang="hi">शेयर</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SCRIPTS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <script src="script.js"></script>
+</body>
+</html>
